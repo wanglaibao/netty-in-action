@@ -6,6 +6,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.*;
 import io.netty.util.CharsetUtil;
+
+import java.net.URI;
+
 /**
  * @author laibao wang
  */
@@ -21,6 +24,26 @@ public class HelloNettyHttpServerHandler extends SimpleChannelInboundHandler<Htt
     public void channelRead0(ChannelHandlerContext context, HttpObject message) throws Exception {
         // 下面的这个if逻辑判断没有也是可以的，加了就更有保障了
         if (message instanceof HttpRequest) {
+            HttpRequest request = (HttpRequest)message;
+            System.out.println("请求的方法名称" + request.method().name());
+            String uri = request.uri();
+            System.out.println("请求的uri" + uri);
+            URI uri1 = new URI((uri));
+            if ("/favicon.ico".equals(uri1.getPath())) {
+                System.out.println("请求favicon.ico");
+                return;
+            }
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
+
+
             ByteBuf content = Unpooled.copiedBuffer("welcome to netty world",CharsetUtil.UTF_8);
             FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
                     HttpResponseStatus.OK, content);
