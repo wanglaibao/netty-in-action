@@ -18,18 +18,18 @@ public class HelloNettyServer {
      */
     public static void main(String[] args) throws Exception {
         //定义两个事件循环组
-        EventLoopGroup boosGroup = new NioEventLoopGroup();         //接收客户端的链接请求，并且把链接转交给worker group // 死循环
+        EventLoopGroup bossGroup = new NioEventLoopGroup();         //接收客户端的链接请求，并且把链接转交给worker group // 死循环
         EventLoopGroup workerGroup = new NioEventLoopGroup();        //正真完成对客户端链接请求的处理       //死循环
         try{
             ServerBootstrap serverBootstrap = new ServerBootstrap();
-            serverBootstrap.group(boosGroup,workerGroup)
+            serverBootstrap.group(bossGroup,workerGroup)
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new HelloNettyServerInitializer());  //开发人员自己来实现
             //服务器绑定到某个端口上面
             ChannelFuture channelFuture = serverBootstrap.bind(8080).sync();
             channelFuture.channel().closeFuture().sync();
         } finally {
-            boosGroup.shutdownGracefully();
+            bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }
     }
