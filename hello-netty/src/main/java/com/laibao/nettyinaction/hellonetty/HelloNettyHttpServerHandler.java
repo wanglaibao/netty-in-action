@@ -22,6 +22,13 @@ public class HelloNettyHttpServerHandler extends SimpleChannelInboundHandler<Htt
      */
     @Override
     public void channelRead0(ChannelHandlerContext context, HttpObject message) throws Exception {
+        System.out.println("有关的处理器handler信息" +message.getClass());
+        System.out.println();
+        System.out.println("获取请求的远程地址" +context.channel().remoteAddress());
+
+        //还可以让请求的这个线程休眠几秒钟
+        //Thread.sleep(8000);
+
         // 下面的这个if逻辑判断没有也是可以的，加了就更有保障了
         if (message instanceof HttpRequest) {
             HttpRequest request = (HttpRequest)message;
@@ -34,15 +41,6 @@ public class HelloNettyHttpServerHandler extends SimpleChannelInboundHandler<Htt
                 return;
             }
             System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println();
-
 
             ByteBuf content = Unpooled.copiedBuffer("welcome to netty world",CharsetUtil.UTF_8);
             FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
@@ -57,6 +55,51 @@ public class HelloNettyHttpServerHandler extends SimpleChannelInboundHandler<Htt
 
             response.headers().set(HttpHeaderNames.CONTENT_LENGTH,content.readableBytes());
             context.writeAndFlush(response);
+            context.channel().close();  //关闭请求channel的连接
         }
     }
+
+    /*
+            下面所添加的一些override方法是为了理解netty的处理流程而添加的，对于一个请求处理的流程如下
+             1： handlerAdded(...)
+             2：channelRegistered(...)
+             3：channelActive(.....)
+             4：channelRead0(ChannelHandlerContext context, HttpObject message)  //这个是处理的业务方法由开发人员来处理业务逻辑
+             5：channelInactive()
+             6：channelUnregistered
+             7:
+     */
+
+    @Override
+    public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("handler Added");
+        super.handlerAdded(ctx);
+    }
+
+    @Override
+    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("channel Registered");
+        super.channelRegistered(ctx);
+    }
+
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("channel Active");
+        super.channelActive(ctx);
+    }
+
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("channel Inactive");
+        super.channelInactive(ctx);
+    }
+
+    @Override
+    public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("channel Unregistered");
+        super.channelUnregistered(ctx);
+    }
+
+
+
 }
