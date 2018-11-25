@@ -26,4 +26,5 @@ public class SocketNettyClient {
             clientLoopGroup.shutdownGracefully();
         }
     }
+
 }

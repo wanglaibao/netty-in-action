@@ -10,6 +10,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @author laibao wang
  */
 public class SocketNettyServer {
+
     public static void main(String[] args) throws Exception {
         //定义两个事件循环组
         EventLoopGroup parentGroup = new NioEventLoopGroup();         //接收客户端的链接请求，并且把链接转交给worker group // 死循环
@@ -29,6 +30,6 @@ public class SocketNettyServer {
             parentGroup.shutdownGracefully();
             childGroup.shutdownGracefully();
         }
-
     }
+
 }
