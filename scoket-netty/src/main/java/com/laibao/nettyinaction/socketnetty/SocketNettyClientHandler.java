@@ -17,15 +17,20 @@ public class SocketNettyClientHandler extends SimpleChannelInboundHandler<String
         ctx.writeAndFlush("from client: " + LocalDateTime.now());
     }
 
-//    @Override
-//    public void channelActive(ChannelHandlerContext ctx) throws Exception {
-//        // 重写该方法的目的是为了 激活客户端向服务端发送数据
-//        ctx.writeAndFlush("来自于客户端的问候！");
-//    }
+    /**
+     *  这个方法必须要重写，否则客户端和服务端无法看到任何数据，怀疑系统出了问题
+     * @param handlerContext
+     * @throws Exception
+     */
+    @Override
+    public void channelActive(ChannelHandlerContext handlerContext) throws Exception {
+        // 重写该方法的目的是为了激活客户端向服务端发送数据
+        handlerContext.writeAndFlush("来自于客户端的问候！");
+    }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCaught(ChannelHandlerContext handlerContext, Throwable cause) throws Exception {
         cause.printStackTrace();
-        ctx.close();
+        handlerContext.close();
     }
 }
