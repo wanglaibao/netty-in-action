@@ -4,6 +4,9 @@
     <groupId>com.laibao.netty</groupId>
     <artifactId>netty-in-action</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <modules>
+        <module>hello-netty</module>
+    </modules>
     <packaging>pom</packaging>
 
     <name>netty-in-action</name>
@@ -33,9 +36,18 @@
         <commons-beanutils.version>1.6</commons-beanutils.version>
         <commons-collections.version>3.2.1</commons-collections.version>
         <junit.version>4.12</junit.version>
+        <!--<netty.version>4.1.29.Final</netty.version>-->
+        <netty.version>4.1.30.Final</netty.version>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>${netty.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
