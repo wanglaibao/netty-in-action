@@ -8,6 +8,7 @@
         <module>hello-netty</module>
         <module>scoket-netty</module>
         <module>bio-socket</module>
+        <module>echo-netty-demo</module>
     </modules>
     <packaging>pom</packaging>
 
