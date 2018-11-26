@@ -24,7 +24,7 @@ public class EchoServerBootStrap {
 
     public static void main(String[] args) {
         try {
-            new EchoServerBootStrap(8989).start();
+            new EchoServerBootStrap(9999).start();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
