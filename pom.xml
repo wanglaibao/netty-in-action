@@ -9,6 +9,7 @@
         <module>scoket-netty</module>
         <module>bio-socket</module>
         <module>echo-netty-demo</module>
+        <module>nettyinaction-book-learning</module>
     </modules>
     <packaging>pom</packaging>
 
