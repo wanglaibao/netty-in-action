@@ -66,8 +66,8 @@ public class HelloNettyHttpServerHandler extends SimpleChannelInboundHandler<Htt
              3：channelActive(.....)
              4：channelRead0(ChannelHandlerContext context, HttpObject message)  //这个是处理的业务方法由开发人员来处理业务逻辑
              5：channelInactive()
-             6：channelUnregistered
-             7:
+             6：channelUnregistered()
+             7: handlerRemoved()
      */
 
     @Override
