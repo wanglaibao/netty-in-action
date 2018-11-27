@@ -10,6 +10,7 @@
         <module>bio-socket</module>
         <module>echo-netty-demo</module>
         <module>nettyinaction-book-learning</module>
+        <module>socket-chat-netty</module>
     </modules>
     <packaging>pom</packaging>
 
