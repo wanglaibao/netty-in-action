@@ -7,7 +7,7 @@ import java.net.Socket;
 import java.nio.charset.Charset;
 
 /**
- * 传统的阻塞网络编程
+ * 传统的BIO阻塞网络编程
  * @author laibao wang
  */
 public class PlainBioServer {
