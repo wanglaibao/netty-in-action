@@ -12,6 +12,7 @@
         <module>nettyinaction-book-learning</module>
         <module>socket-chat-netty</module>
         <module>heart-beat-demo</module>
+        <module>websocket-netty</module>
     </modules>
     <packaging>pom</packaging>
 
