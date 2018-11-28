@@ -11,6 +11,7 @@
         <module>echo-netty-demo</module>
         <module>nettyinaction-book-learning</module>
         <module>socket-chat-netty</module>
+        <module>heart-beat-demo</module>
     </modules>
     <packaging>pom</packaging>
 
