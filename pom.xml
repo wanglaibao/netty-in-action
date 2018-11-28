@@ -13,6 +13,7 @@
         <module>socket-chat-netty</module>
         <module>heart-beat-demo</module>
         <module>websocket-netty</module>
+        <module>protobuf-netty</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -45,6 +46,7 @@
         <junit.version>4.12</junit.version>
         <!--<netty.version>4.1.29.Final</netty.version>-->
         <netty.version>4.1.31.Final</netty.version>
+        <!--<protobuf.version>3.6.1</protobuf.version>-->
     </properties>
 
     <dependencies>
