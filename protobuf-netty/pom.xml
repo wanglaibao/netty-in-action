@@ -39,6 +39,14 @@
             <version>1.2.53</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.alipay.sofa/hessian -->
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>hessian</artifactId>
+            <version>3.3.3</version>
+        </dependency>
+
+
     </dependencies>
 
 </project>
