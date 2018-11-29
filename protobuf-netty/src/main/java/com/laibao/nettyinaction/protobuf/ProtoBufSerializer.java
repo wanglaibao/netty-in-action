@@ -14,9 +14,10 @@ public class ProtoBufSerializer implements ISerializer{
     public <T> byte[] serialize(T t) {
         try {
             if (t instanceof GeneratedMessageV3) {
+                return (byte[]) MethodUtils.invokeMethod(t,"toByteArray");
+            }else {
                 throw new UnsupportedOperationException("not supported object type");
             }
-            return (byte[]) MethodUtils.invokeMethod(t,"toByteArray");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -26,12 +27,12 @@ public class ProtoBufSerializer implements ISerializer{
     @Override
     public <T> T deserialize(byte[] data, Class<T> clazz) {
         try{
-            if (!GeneratedMessageV3.class.isAssignableFrom(clazz)) {
+            if (GeneratedMessageV3.class.isAssignableFrom(clazz)) {
+                Object obj = MethodUtils.invokeExactStaticMethod(clazz,"getDefaultInstance");
+                return (T) MethodUtils.invokeMethod(obj,"parseFrom",new Object[] {data});
+            }else {
                 throw new UnsupportedOperationException("not supported object type");
             }
-
-            Object obj = MethodUtils.invokeExactStaticMethod(clazz,"getDefaultInstance");
-            return (T) MethodUtils.invokeMethod(obj,"parseFrom",new Object[] {data});
         }catch (Exception e) {
             e.printStackTrace();
         }
