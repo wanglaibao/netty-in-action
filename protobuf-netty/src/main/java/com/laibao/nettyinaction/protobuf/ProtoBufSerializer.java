@@ -3,7 +3,6 @@ package com.laibao.nettyinaction.protobuf;
 import com.google.protobuf.GeneratedMessageV3;
 import org.apache.commons.lang3.reflect.MethodUtils;
 
-import java.lang.reflect.InvocationTargetException;
 
 /**
  * @author laibao wang
