@@ -14,6 +14,7 @@
         <module>heart-beat-demo</module>
         <module>websocket-netty</module>
         <module>protobuf-netty</module>
+        <module>grpc-netty</module>
     </modules>
     <packaging>pom</packaging>
 
