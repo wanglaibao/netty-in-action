@@ -15,6 +15,7 @@
         <module>websocket-netty</module>
         <module>protobuf-netty</module>
         <module>grpc-netty</module>
+        <module>decorator-pattern</module>
     </modules>
     <packaging>pom</packaging>
 
