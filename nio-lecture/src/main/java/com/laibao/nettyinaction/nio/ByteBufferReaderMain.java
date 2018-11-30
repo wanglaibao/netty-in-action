@@ -14,6 +14,7 @@ public class ByteBufferReaderMain {
         try(FileInputStream fileInputStream = new FileInputStream(filePath);
             FileChannel fileChannel = fileInputStream.getChannel();){
                 ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+                byteBuffer.clear();
                 fileChannel.read(byteBuffer);
                 byteBuffer.flip();
                 while (byteBuffer.remaining() > 0) {

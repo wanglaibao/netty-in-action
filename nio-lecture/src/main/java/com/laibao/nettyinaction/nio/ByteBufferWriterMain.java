@@ -17,6 +17,7 @@ public class ByteBufferWriterMain {
         try(FileOutputStream fileOutputStream = new FileOutputStream(FILE_PATH);
             FileChannel fileChannel = fileOutputStream.getChannel();) {
                 ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+                byteBuffer.clear();
                 byte[] data = "hello world welcome hello world welcome hello world welcome".getBytes();
                 for (int i = 0;i<data.length;i++) {
                     byteBuffer.put(data[i]);
