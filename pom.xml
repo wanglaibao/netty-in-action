@@ -16,6 +16,7 @@
         <module>protobuf-netty</module>
         <module>grpc-netty</module>
         <module>decorator-pattern</module>
+        <module>nio-lecture</module>
     </modules>
     <packaging>pom</packaging>
 
