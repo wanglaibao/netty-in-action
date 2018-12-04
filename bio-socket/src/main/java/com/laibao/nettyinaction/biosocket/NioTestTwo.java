@@ -28,7 +28,7 @@ public class NioTestTwo {
                     byteBuffer.flip();
                     int count = byteBuffer.remaining();
                     for (int i = 0;i < count;i++) {
-                        System.out.println(byteBuffer.get());
+                        System.out.println((char) byteBuffer.get());
                     }
                 }
         }
